@@ -12,11 +12,11 @@ It can change following
 
 ## Installation
 - Clone the repo
-- Place `switcher.conf`  in  `~/.config` [ Create the folder if it does not exist ]
-- Place `switcher.sh` in `~/.local/bin`[ Or any folder which is a `$PATH` variable ]
+- Place `switch.conf`  in  `~/.config` [ Create the folder if it does not exist ]
+- Place `switcher` in `~/.local/bin`[ Or any folder which is a `$PATH` variable ]
 - Make the script file executable by running
 ```
-$ chmod +x switcher.sh
+$ chmod +x switch
 ```
 
 ## config
@@ -27,7 +27,7 @@ Provide all necessary variables
 ## Usage
 
 ```
-$ switcher option
+$ switch option
 ```
 where option is either `light` or `dark`
 
