@@ -22,6 +22,8 @@ if [[ "$1" == "light" ]]; then
 	xfconf-query -c xsettings -p /Net/ThemeName -s "$LIGHT_THEME"
 	#icon pack
 	xfconf-query -c xsettings -p /Net/IconThemeName -s "$LIGHT_ICON"
+	#window manager: if you're using xfcewm
+	xfconf-query -c xfwm4 -p /general/theme -s "$LIGHT_WM_THEME"	
 	#wallpaper change
 	xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitoreDP-1/workspace0/last-image -s "$LIGHT_WALLPAPER"
 	#This is for panel 0 only, if you have more than 1 panels repeat the code
@@ -31,10 +33,12 @@ if [[ "$1" == "light" ]]; then
 elif [[ "$1" == "dark" ]]; then
 	xfconf-query -c xsettings -p /Net/ThemeName -s "$DARK_THEME"
 	xfconf-query -c xsettings -p /Net/IconThemeName -s "$DARK_ICON"
+	xfconf-query -c xfwm4 -p /general/theme -s "$DARK_WM_THEME"	
 	xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitoreDP-1/workspace0/last-image -s "$DARK_WALLPAPER"
 	xfconf-query -c xfce4-panel -p /panels/panel-0/background-rgba -s "$DR" -s "$DG" -s "$DB" -s "$DARK_OPACITY"
 fi
 
 #restart the xfce4 panel
 #this can be commented out if performance is your concern
+#but it comes with some caveats if you disable this
 xfce4-panel -r
