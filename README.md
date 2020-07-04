@@ -8,6 +8,7 @@ It can change following
  - icon pack
  - wallpaper
  - xfce4-panel colors
+ - xfce4 window manager theme
 
 ## Installation
 - Clone the repo
