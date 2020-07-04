@@ -21,7 +21,7 @@ $ chmod +x switch
 
 ## config
 
-Follow the instructions in `config` file
+Follow the instructions in `switch.conf` file
 Provide all necessary variables
 
 ## Usage
