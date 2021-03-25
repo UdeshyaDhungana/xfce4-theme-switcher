@@ -2,7 +2,7 @@
 
 # Replace the line above with your default shell
 
-#import config file
+#import config file from your stored location
 . ~/.config/switch.conf
 
 #Convert rgba value to 0-255 range
@@ -25,17 +25,23 @@ if [[ "$1" == "light" ]]; then
 	#window manager: if you're using xfcewm
 	xfconf-query -c xfwm4 -p /general/theme -s "$LIGHT_WM_THEME"	
 	#wallpaper change
-	xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitoreDP-1/workspace0/last-image -s "$LIGHT_WALLPAPER"
+	xfconf-query -c xfce4-desktop -p /backdrop/"$SCREEN"/"$DISPLAY_PORT"/workspace0/last-image -s "$LIGHT_WALLPAPER"
 	#This is for panel 0 only, if you have more than 1 panels repeat the code
 	#below replacing panel-0 by panel-1 and so on
 	#Repeat this for dark theme too
-	xfconf-query -c xfce4-panel -p /panels/panel-0/background-rgba -s "$LR" -s "$LG" -s "$LB" -s "$LIGHT_OPACITY"
+	xfconf-query -c xfce4-panel -p /panels/panel-1/background-rgba -s "$LR" -s "$LG" -s "$LB" -s "$LIGHT_OPACITY"
+
+	sed -i "s/^colorscheme.*/colorscheme\\ $VIM_LIGHT_COLORSCHEME/" ~/.vimrc
+  sed -i "s/set\\ background=dark/set\\ background=light/" ~/.vimrc
 elif [[ "$1" == "dark" ]]; then
 	xfconf-query -c xsettings -p /Net/ThemeName -s "$DARK_THEME"
 	xfconf-query -c xsettings -p /Net/IconThemeName -s "$DARK_ICON"
 	xfconf-query -c xfwm4 -p /general/theme -s "$DARK_WM_THEME"	
-	xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitoreDP-1/workspace0/last-image -s "$DARK_WALLPAPER"
-	xfconf-query -c xfce4-panel -p /panels/panel-0/background-rgba -s "$DR" -s "$DG" -s "$DB" -s "$DARK_OPACITY"
+	xfconf-query -c xfce4-desktop -p /backdrop/"$SCREEN"/"$DISPLAY_PORT"/workspace0/last-image -s "$DARK_WALLPAPER"
+	xfconf-query -c xfce4-panel -p /panels/panel-1/background-rgba -s "$DR" -s "$DG" -s "$DB" -s "$DARK_OPACITY"
+
+	sed -i "s/^colorscheme.*/colorscheme\\ $VIM_DARK_COLORSCHEME/" ~/.vimrc
+  sed -i "s/set\\ background=light/set\\ background=dark/" ~/.vimrc
 fi
 
 #restart the xfce4 panel
