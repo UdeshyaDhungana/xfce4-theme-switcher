@@ -29,7 +29,7 @@ if [[ "$1" == "light" ]]; then
 	#This is for panel 0 only, if you have more than 1 panels repeat the code
 	#below replacing panel-0 by panel-1 and so on
 	#Repeat this for dark theme too
-	xfconf-query -c xfce4-panel -p /panels/panel-1/background-rgba -s "$LR" -s "$LG" -s "$LB" -s "$LIGHT_OPACITY"
+	xfconf-query -c xfce4-panel -p /panels/panel-"$PANEL_NUMBER"/background-rgba -s "$LR" -s "$LG" -s "$LB" -s "$LIGHT_OPACITY"
 
 	sed -i "s/^colorscheme.*/colorscheme\\ $VIM_LIGHT_COLORSCHEME/" ~/.vimrc
   sed -i "s/set\\ background=dark/set\\ background=light/" ~/.vimrc
@@ -38,7 +38,7 @@ elif [[ "$1" == "dark" ]]; then
 	xfconf-query -c xsettings -p /Net/IconThemeName -s "$DARK_ICON"
 	xfconf-query -c xfwm4 -p /general/theme -s "$DARK_WM_THEME"	
 	xfconf-query -c xfce4-desktop -p /backdrop/"$SCREEN"/"$DISPLAY_PORT"/workspace0/last-image -s "$DARK_WALLPAPER"
-	xfconf-query -c xfce4-panel -p /panels/panel-1/background-rgba -s "$DR" -s "$DG" -s "$DB" -s "$DARK_OPACITY"
+	xfconf-query -c xfce4-panel -p /panels/panel-"$PANEL_NUMBER"/background-rgba -s "$DR" -s "$DG" -s "$DB" -s "$DARK_OPACITY"
 
 	sed -i "s/^colorscheme.*/colorscheme\\ $VIM_DARK_COLORSCHEME/" ~/.vimrc
   sed -i "s/set\\ background=light/set\\ background=dark/" ~/.vimrc
