@@ -3,7 +3,7 @@
 # Replace the line above with your default shell
 
 #import config file from your stored location
-. ./myconf.conf
+. ~/.config/switch.conf
 
 #Convert rgba value to 0-255 range
 LR="$(($LIGHT_RED/255.0))"
