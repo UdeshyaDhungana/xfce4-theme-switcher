@@ -51,4 +51,3 @@ above in `/panels/panel-1/background-rgba`) to all black (255,255,255,255) color
 You can override the color after you run switch and through switch.conf.
 
 ---
-I am a beginner. So, please report bugs! 😊
