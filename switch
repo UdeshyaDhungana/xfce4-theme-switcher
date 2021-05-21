@@ -1,6 +1,4 @@
-#! /bin/zsh
-
-# Replace the line above with your default shell
+#! /bin/bash
 
 #import config file from your stored location
 . ~/.config/switch.conf
