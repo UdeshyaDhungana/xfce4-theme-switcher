@@ -1,18 +1,16 @@
-#! /bin/zsh
-
-# Replace the line above with your default shell
+#! /bin/bash
 
 #import config file from your stored location
 . ~/.config/switch.conf
 
 #Convert rgba value to 0-255 range
-LR="$(($LIGHT_RED/255.0))"
-LG="$(($LIGHT_GREEN/255.0))"
-LB="$(($LIGHT_BLUE/255.0))"
+LR="$(($LIGHT_RED/255))"
+LG="$(($LIGHT_GREEN/255))"
+LB="$(($LIGHT_BLUE/255))"
 
-DR="$(($DARK_RED/255.0))"
-DG="$(($DARK_GREEN/255.0))"
-DB="$(($DARK_BLUE/255.0))"
+DR="$(($DARK_RED/255))"
+DG="$(($DARK_GREEN/255))"
+DB="$(($DARK_BLUE/255))"
 
 # Set the variables according to the arguments
 
